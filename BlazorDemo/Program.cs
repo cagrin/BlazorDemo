@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Blazorise.DataGrid.Template
+namespace BlazorDemo
 {
     public class Program
     {

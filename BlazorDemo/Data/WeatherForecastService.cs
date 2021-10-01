@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazorise;
+using Blazorise.DataGrid;
 
-namespace Blazorise.DataGrid.Template.Data
+namespace BlazorDemo.Data
 {
     public class WeatherForecastService
     {

@@ -1,2 +1,2 @@
-# blazor-templates
+# BlazorDemo
 Blazor templates and samples apps.

@@ -1,6 +1,6 @@
 using System;
 
-namespace Blazorise.DataGrid.Template.Data
+namespace BlazorDemo.Data
 {
     public class WeatherForecast
     {
