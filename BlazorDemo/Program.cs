@@ -1,24 +1,25 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using BlazorDemo.Data;
 using Blazorise;
 using Blazorise.Localization;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
 
-// This method change language for Blazorise components
-new TextLocalizerService().ChangeLanguage("pl");
-
 var builder = WebApplication.CreateBuilder(args);
+var svc = builder.Services;
 
 // Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
-builder.Services.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; } )
-                .AddBootstrapProviders()
-                .AddFontAwesomeIcons();
+svc.AddRazorPages();
+svc.AddServerSideBlazor();
+svc.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; } )
+   .AddBootstrapProviders()
+   .AddFontAwesomeIcons();
 
-builder.Services.AddSingleton<WeatherForecastService>();
+svc.AddSingleton<WeatherForecastService>();
+
+// This method change language for Blazorise components
+svc.BuildServiceProvider()
+   .GetRequiredService<ITextLocalizerService>()
+   .ChangeLanguage("pl");
 
 var app = builder.Build();
 
