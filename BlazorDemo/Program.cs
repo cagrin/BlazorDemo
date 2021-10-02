@@ -4,37 +4,55 @@ using Blazorise.Localization;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
 
-var builder = WebApplication.CreateBuilder(args);
-var svc = builder.Services;
+Application.Run(args);
 
-// Add services to the container.
-svc.AddRazorPages();
-svc.AddServerSideBlazor();
-svc.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; } )
-   .AddBootstrapProviders()
-   .AddFontAwesomeIcons();
-
-svc.AddSingleton<WeatherForecastService>();
-
-// This method change language for Blazorise components
-svc.BuildServiceProvider()
-   .GetRequiredService<ITextLocalizerService>()
-   .ChangeLanguage("pl");
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+public static class Application
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    public static void Run(string[] args)
+    {
+        WebApplication
+            .CreateBuilder(args)
+            .AddServices()
+            .Build()
+            .Configure()
+            .Run();
+    }
+
+    public static WebApplicationBuilder AddServices(this WebApplicationBuilder builder)
+    {
+        var svc = builder.Services;
+
+        svc.AddRazorPages();
+        svc.AddServerSideBlazor();
+        svc.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; } )
+           .AddBootstrapProviders()
+           .AddFontAwesomeIcons();
+
+        svc.AddSingleton<WeatherForecastService>();
+
+        // This method change language for Blazorise components
+        svc.BuildServiceProvider()
+           .GetRequiredService<ITextLocalizerService>()
+           .ChangeLanguage("pl");
+
+        return builder;
+    }
+    public static WebApplication Configure(this WebApplication app)
+    {
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseRouting();
+        app.MapBlazorHub();
+        app.MapFallbackToPage("/_Host");
+
+        return app;
+    }
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
-
-app.Run();
