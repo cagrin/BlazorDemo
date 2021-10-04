@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blazorise;
 using Blazorise.DataGrid;
+using LikeComparison;
 
 namespace BlazorDemo.Data
 {
@@ -27,14 +28,15 @@ namespace BlazorDemo.Data
             foreach (var column in filteredColumns)
             {
                 var search = column.SearchValue?.ToString();
+                var likeOptions = new LikeOptions();
                 if (search != null)
                 {
                     query = (column.Field) switch
                     {
-                        nameof(WeatherForecast.Date) => query.Where(f => f.Date.ToShortDateString().Contains(search)),
-                        nameof(WeatherForecast.TemperatureC) => query.Where(f => f.TemperatureC.ToString().Contains(search)),
-                        nameof(WeatherForecast.TemperatureF) => query.Where(f => f.TemperatureF.ToString().Contains(search)),
-                        nameof(WeatherForecast.Summary) => query.Where(f => f.Summary.Contains(search)),
+                        nameof(WeatherForecast.Date) => query.Where(f => f.Date.ToShortDateString().Like(search, likeOptions)),
+                        nameof(WeatherForecast.TemperatureC) => query.Where(f => f.TemperatureC.ToString().Like(search, likeOptions)),
+                        nameof(WeatherForecast.TemperatureF) => query.Where(f => f.TemperatureF.ToString().Like(search, likeOptions)),
+                        nameof(WeatherForecast.Summary) => query.Where(f => f.Summary.Like(search, likeOptions)),
                         _ => query
                     };
                 }

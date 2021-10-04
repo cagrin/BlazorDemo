@@ -11,6 +11,7 @@
     <PackageReference Include="Blazorise.Bootstrap" Version="0.9.4.4" />
     <PackageReference Include="Blazorise.DataGrid" Version="0.9.4.4" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.4.4" />
+    <PackageReference Include="LikeComparison" Version="1.0.0"/>
   </ItemGroup>
 
 </Project>
