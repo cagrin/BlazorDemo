@@ -3,12 +3,17 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-	</PropertyGroup>
+        <AnalysisMode>All</AnalysisMode>
+        <CodeAnalysisRuleSet>../StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354" PrivateAssets="All"/>
+    </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0-rc.2.21480.5"/>
-		<PackageReference Include="Blazorise.Bootstrap" Version="0.9.4.6"/>
-		<PackageReference Include="Blazorise.DataGrid" Version="0.9.4.6"/>
-		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.4.6"/>
-		<PackageReference Include="LikeComparison" Version="1.0.1"/>
+		<PackageReference Include="Blazorise.Bootstrap" Version="0.9.4.7"/>
+		<PackageReference Include="Blazorise.DataGrid" Version="0.9.4.7"/>
+		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.4.7"/>
+		<PackageReference Include="LikeComparison" Version="1.0.4"/>
 	</ItemGroup>
 </Project>
