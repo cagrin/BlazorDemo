@@ -16,13 +16,13 @@ namespace BlazorDemo.Data
 
         public async Task OnReadDataAsync(DataGridReadDataEventArgs<WeatherForecast> e)
         {
-            if (_forecasts == null)
+            if (this._forecasts == null)
             {
-                var items = await GetForecastAsync(DateTime.Now);
-                _forecasts = items.AsQueryable<WeatherForecast>();
+                var items = await this.GetForecastAsync(DateTime.Now);
+                this._forecasts = items.AsQueryable<WeatherForecast>();
             }
 
-            var query = _forecasts;
+            var query = this._forecasts;
 
             var filteredColumns = e.Columns.Where(f => !string.IsNullOrEmpty(f.SearchValue?.ToString())).ToArray();
             foreach (var column in filteredColumns)
@@ -58,8 +58,8 @@ namespace BlazorDemo.Data
                 };
             }
 
-            TotalItems = query.Count();
-            Data = query.Skip((e.Page - 1) * e.PageSize).Take(e.PageSize).ToArray();
+            this.TotalItems = query.Count();
+            this.Data = query.Skip((e.Page - 1) * e.PageSize).Take(e.PageSize).ToArray();
         }
 
         private IQueryable<WeatherForecast>? _forecasts;
