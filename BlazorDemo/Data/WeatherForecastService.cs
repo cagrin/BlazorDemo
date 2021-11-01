@@ -30,7 +30,7 @@ namespace BlazorDemo.Data
                 var search = column.SearchValue?.ToString();
                 if (search != null)
                 {
-                    query = (column.Field) switch
+                    query = column.Field switch
                     {
                         nameof(WeatherForecast.Date) => query.Where(f => f.Date.ToShortDateString().Like(search)),
                         nameof(WeatherForecast.TemperatureC) => query.Where(f => f.TemperatureC.ToString().Like(search)),
