@@ -6,12 +6,12 @@ namespace BlazorDemo.Data
 
     public class WeatherForecastService
     {
-        private IQueryable<WeatherForecast>? _forecasts;
-
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
+
+        private IQueryable<WeatherForecast>? _forecasts;
 
         public WeatherForecast[]? Data { get; set; }
 
