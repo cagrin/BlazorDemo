@@ -1,8 +1,8 @@
 using BlazorDemo.Data;
 using Blazorise;
-using Blazorise.Localization;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
+using Blazorise.Localization;
 
 Application.Run(args);
 
