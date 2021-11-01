@@ -37,6 +37,7 @@ public static class Application
 
         return builder;
     }
+
     public static WebApplication Configure(this WebApplication app)
     {
         // Configure the HTTP request pipeline.
