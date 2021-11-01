@@ -6,6 +6,13 @@ namespace BlazorDemo.Data
 
     public class WeatherForecastService
     {
+        private IQueryable<WeatherForecast>? _forecasts;
+
+        private static readonly string[] Summaries = new[]
+        {
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+
         public WeatherForecast[]? Data { get; set; }
 
         public int TotalItems { get; set; }
@@ -57,13 +64,6 @@ namespace BlazorDemo.Data
             this.TotalItems = query.Count();
             this.Data = query.Skip((e.Page - 1) * e.PageSize).Take(e.PageSize).ToArray();
         }
-
-        private IQueryable<WeatherForecast>? _forecasts;
-
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
         private Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
         {

@@ -9,16 +9,16 @@
     [IgnoreAntiforgeryToken]
     public class ErrorModel : PageModel
     {
-        public string? RequestId { get; set; }
-
-        public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
-
         private readonly ILogger<ErrorModel> _logger;
 
         public ErrorModel(ILogger<ErrorModel> logger)
         {
             this._logger = logger;
         }
+
+        public string? RequestId { get; set; }
+
+        public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
 
         public void OnGet()
         {
