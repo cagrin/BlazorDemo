@@ -1,5 +1,3 @@
-using System;
-
 namespace BlazorDemo.Data
 {
     public class WeatherForecast
