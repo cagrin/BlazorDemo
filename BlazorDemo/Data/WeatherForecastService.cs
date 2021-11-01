@@ -8,7 +8,7 @@ namespace BlazorDemo.Data
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching",
         };
 
         private IQueryable<WeatherForecast>? _forecasts;
@@ -39,7 +39,7 @@ namespace BlazorDemo.Data
                         nameof(WeatherForecast.TemperatureC) => query.Where(f => f.TemperatureC.ToString().Like(search)),
                         nameof(WeatherForecast.TemperatureF) => query.Where(f => f.TemperatureF.ToString().Like(search)),
                         nameof(WeatherForecast.Summary) => query.Where(f => f.Summary.Like(search)),
-                        _ => query
+                        _ => query,
                     };
                 }
             }
@@ -57,7 +57,7 @@ namespace BlazorDemo.Data
                     (nameof(WeatherForecast.TemperatureF), SortDirection.Descending) => query.OrderByDescending(f => f.TemperatureF),
                     (nameof(WeatherForecast.Summary), SortDirection.Ascending) => query.OrderBy(f => f.Summary),
                     (nameof(WeatherForecast.Summary), SortDirection.Descending) => query.OrderByDescending(f => f.Summary),
-                    _ => query
+                    _ => query,
                 };
             }
 
@@ -72,7 +72,7 @@ namespace BlazorDemo.Data
             {
                 Date = startDate.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
             }).ToArray());
         }
     }
