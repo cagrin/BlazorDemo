@@ -24,7 +24,7 @@ public static class Application
 
         svc.AddRazorPages();
         svc.AddServerSideBlazor();
-        svc.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; } )
+        svc.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; })
            .AddBootstrapProviders()
            .AddFontAwesomeIcons();
 
