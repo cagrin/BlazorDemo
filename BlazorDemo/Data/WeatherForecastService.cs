@@ -19,6 +19,11 @@ namespace BlazorDemo.Data
 
         public async Task OnReadDataAsync(DataGridReadDataEventArgs<WeatherForecast> e)
         {
+            if (e == null)
+            {
+                throw new ArgumentNullException(nameof(e), "Value cannot be null.");
+            }
+
             if (this._forecasts == null)
             {
                 var items = await this.GetForecastAsync(DateTime.Now);

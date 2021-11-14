@@ -20,6 +20,11 @@ public static class Application
 
     public static WebApplicationBuilder AddServices(this WebApplicationBuilder builder)
     {
+        if (builder == null)
+        {
+            throw new ArgumentNullException(nameof(builder), "Value cannot be null.");
+        }
+
         var svc = builder.Services;
 
         svc.AddRazorPages();
@@ -40,6 +45,11 @@ public static class Application
 
     public static WebApplication Configure(this WebApplication app)
     {
+        if (app == null)
+        {
+            throw new ArgumentNullException(nameof(app), "Value cannot be null.");
+        }
+
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
