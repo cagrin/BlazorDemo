@@ -1,6 +1,6 @@
 using BlazorDemo.Data;
 using Blazorise;
-using Blazorise.Bootstrap;
+using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
 using Blazorise.Localization;
 
@@ -30,7 +30,7 @@ public static class Application
         svc.AddRazorPages();
         svc.AddServerSideBlazor();
         svc.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; })
-           .AddBootstrapProviders()
+           .AddBootstrap5Providers()
            .AddFontAwesomeIcons();
 
         svc.AddSingleton<WeatherForecastService>();
