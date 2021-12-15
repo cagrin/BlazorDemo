@@ -1,0 +1,19 @@
+name: Just build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@master
+        with:
+          dotnet-version: '6.0'
+      - name: Build
+        run: dotnet build BlazorDemo --configuration Release
