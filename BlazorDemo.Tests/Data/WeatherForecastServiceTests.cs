@@ -1,12 +1,16 @@
 namespace BlazorDemo.Tests.Data
 {
+    using BlazorDemo.Data;
+
     [TestClass]
     public class WeatherForecastServiceTests
     {
         [TestMethod]
         public void EmptyTest()
         {
-            Assert.IsTrue(true);
+            var service = new WeatherForecastService();
+            var isEmpty = service.Data == null;
+            Assert.IsTrue(isEmpty);
         }
     }
 }
