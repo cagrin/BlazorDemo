@@ -1,4 +1,4 @@
-name: Just build
+name: Unit tests
 
 on:
   push:
@@ -16,4 +16,4 @@ jobs:
         with:
           dotnet-version: '6.0'
       - name: Build
-        run: dotnet build BlazorDemo --configuration Release
+        run: dotnet test BlazorDemo.Tests --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
