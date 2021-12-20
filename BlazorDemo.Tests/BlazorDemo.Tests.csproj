@@ -6,6 +6,7 @@
 		<ProjectReference Include="..\BlazorDemo\BlazorDemo.csproj"/>
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="bunit" Version="1.4.15"/>
 		<PackageReference Include="coverlet.collector" Version="3.1.0"/>
 		<PackageReference Include="coverlet.msbuild" Version="3.1.0"/>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0"/>
