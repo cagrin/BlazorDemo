@@ -33,5 +33,13 @@ namespace BlazorDemo.Tests.Data
             var isEmpty = service.Data == null;
             Assert.IsFalse(isEmpty);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async Task WeatherForecastServiceShouldThrowArgumentNullException()
+        {
+            var service = new WeatherForecastService();
+            await service.OnReadDataAsync(e: null!);
+        }
     }
 }
