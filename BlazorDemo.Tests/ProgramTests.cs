@@ -18,5 +18,12 @@ namespace BlazorDemo.Tests
         {
             Application.Configure(app: null!);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AddServicesShouldThrowArgumentNullException()
+        {
+            Application.AddServices(builder: null!);
+        }
     }
 }
