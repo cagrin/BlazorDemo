@@ -10,12 +10,16 @@ public static class Application
 {
     public static void Run(string[] args)
     {
-        WebApplication
+        var app = WebApplication
             .CreateBuilder(args)
             .AddServices()
             .Build()
-            .Configure()
-            .Run();
+            .Configure();
+
+        if (args != null)
+        {
+            app.Run();
+        }
     }
 
     public static WebApplicationBuilder AddServices(this WebApplicationBuilder builder)
