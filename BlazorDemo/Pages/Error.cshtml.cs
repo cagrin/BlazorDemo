@@ -22,7 +22,7 @@
 
         public void OnGet()
         {
-            this.RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier;
+            this.RequestId = Activity.Current?.Id ?? this.HttpContext?.TraceIdentifier;
         }
     }
 }

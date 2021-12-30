@@ -13,8 +13,7 @@ namespace BlazorDemo.Tests.Pages
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
-        public void ErrorShouldThrowNullReferenceException()
+        public void ErrorShouldHasOnGet()
         {
             var cut = new ErrorModel(logger: null!);
             cut.OnGet();
