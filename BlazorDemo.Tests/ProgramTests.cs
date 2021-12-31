@@ -1,29 +1,28 @@
 namespace BlazorDemo.Tests
 {
     using BlazorDemo;
-    using Bunit;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.TestHost;
 
     [TestClass]
     public class ProgramTests
     {
         [TestMethod]
-        public void ProgramShouldRun()
+        public void ProgramBuilderShouldRun()
         {
-            Application.Run(args: null!);
+            Program.CreateHostBuilder(args: null!);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ConfigureShouldThrowArgumentNullException()
+        public async Task ErrorPageShouldRun()
         {
-            Application.Configure(app: null!);
-        }
+            using var server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void AddServicesShouldThrowArgumentNullException()
-        {
-            Application.AddServices(builder: null!);
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync(new Uri("/error"));
+
+            Assert.IsNotNull(response);
         }
     }
 }
