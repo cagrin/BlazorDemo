@@ -1,8 +1,13 @@
 namespace BlazorDemo.Tests
 {
     using BlazorDemo;
+    using BlazorDemo.Data;
+    using Blazorise;
+    using Blazorise.Bootstrap5;
+    using Blazorise.Icons.FontAwesome;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.TestHost;
+    using Microsoft.Extensions.DependencyInjection;
 
     [TestClass]
     public class ProgramTests
@@ -33,6 +38,15 @@ namespace BlazorDemo.Tests
             var response = await client.GetAsync(new Uri("/"));
 
             Assert.IsNotNull(response);
+        }
+
+        [TestMethod]
+        public void FetchdataPageShouldRun()
+        {
+            using var server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
+
+            var client = server.CreateClient();
+            client.GetAsync(new Uri("/fetchdata")).Wait();
         }
     }
 }
