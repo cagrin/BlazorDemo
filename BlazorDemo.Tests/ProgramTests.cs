@@ -19,8 +19,18 @@ namespace BlazorDemo.Tests
             using var server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
 
             var client = server.CreateClient();
-
             var response = await client.GetAsync(new Uri("/error"));
+
+            Assert.IsNotNull(response);
+        }
+
+        [TestMethod]
+        public async Task DefaultPageShouldRun()
+        {
+            using var server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
+
+            var client = server.CreateClient();
+            var response = await client.GetAsync(new Uri("/"));
 
             Assert.IsNotNull(response);
         }
