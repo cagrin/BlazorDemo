@@ -41,12 +41,15 @@ namespace BlazorDemo.Tests
         }
 
         [TestMethod]
-        public void FetchdataPageShouldRun()
+        public async Task FetchdataPageShouldRun()
         {
             using var server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
 
             var client = server.CreateClient();
-            client.GetAsync(new Uri("/fetchdata")).Wait();
+            var response = await client.GetAsync(new Uri("/fetchdata"));
+            var actual = await response.Content.ReadAsStringAsync();
+
+            Assert.IsTrue(actual.Contains("<h1>Weather forecast</h1>", StringComparison.Ordinal));
         }
     }
 }
