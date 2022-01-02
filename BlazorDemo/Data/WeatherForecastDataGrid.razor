@@ -8,14 +8,7 @@
     <ChildContent>
         <DataGridColumn TItem="WeatherForecast" Field="@nameof(WeatherForecast.Date)" Caption="Date">
             <DisplayTemplate>
-                @{
-                    var date = (context as WeatherForecast)?.Date;
-
-                    if (date != null)
-                    {
-                        @($"{date.Value.ToShortDateString()}")
-                    }
-                }
+                @context.Date.ToShortDateString()
             </DisplayTemplate>
         </DataGridColumn>
         <DataGridColumn TItem="WeatherForecast" Field="@nameof(WeatherForecast.TemperatureC)" Caption="Temp. (C)" />
