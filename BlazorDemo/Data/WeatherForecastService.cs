@@ -1,8 +1,10 @@
 namespace BlazorDemo.Data
 {
+/*
     using Blazorise;
     using Blazorise.DataGrid;
     using LikeComparison.VisualBasic;
+*/
 
     public class WeatherForecastService
     {
@@ -11,6 +13,7 @@ namespace BlazorDemo.Data
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching",
         };
 
+/*
         private IQueryable<WeatherForecast>? _forecasts;
 
         public WeatherForecast[]? Data { get; set; }
@@ -69,8 +72,9 @@ namespace BlazorDemo.Data
             this.TotalItems = query.Count();
             this.Data = query.Skip((e.Page - 1) * e.PageSize).Take(e.PageSize).ToArray();
         }
+*/
 
-        private Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+        public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
         {
             var rng = new Random();
             return Task.FromResult(Enumerable.Range(1, 25).Select(index => new WeatherForecast

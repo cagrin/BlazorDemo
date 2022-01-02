@@ -1,7 +1,7 @@
 @inject WeatherForecastService ForecastService
 
 <DataGrid TItem="WeatherForecast"
-    Data="@ForecastService.Data" ReadData="@ForecastService.OnReadDataAsync" TotalItems="@ForecastService.TotalItems"
+    Data="@Data"
     ShowPager="true" ShowPageSizes="true" PagerPosition="@DataGridPagerPosition.Top"
     Filterable="true"
     Class="table-bordered">
@@ -19,3 +19,14 @@
         <p><em>Loading...</em></p>
     </LoadingTemplate>
 </DataGrid>
+
+@code
+{
+    public WeatherForecast[]? Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.Data = await this.ForecastService.GetForecastAsync(DateTime.Now);
+        await base.OnInitializedAsync();
+    }
+}
