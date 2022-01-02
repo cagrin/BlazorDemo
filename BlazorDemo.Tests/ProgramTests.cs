@@ -13,7 +13,16 @@ namespace BlazorDemo.Tests
     public class ProgramTests
     {
         [TestMethod]
-        public void ProgramBuilderShouldRun()
+        public void ProgramMainShouldRunWithNullArgs()
+        {
+            Parallel.ForEachAsync(new List<string[]> { null! }, new ParallelOptions() { MaxDegreeOfParallelism = 1 }, async (c, t) =>
+            {
+                await Task.Run(() => { Program.Main(args: c); }, CancellationToken.None);
+            });
+        }
+
+        [TestMethod]
+        public void ProgramCreateHostBuilderShouldRunWithNullArgs()
         {
             Program.CreateHostBuilder(args: null!);
         }
