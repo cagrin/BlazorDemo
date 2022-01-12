@@ -1,6 +1,5 @@
 namespace BlazorDemo.Tests.SharedObjects
 {
-    using BlazorDemo.Shared;
     using Bunit;
 
     [TestClass]
@@ -10,7 +9,7 @@ namespace BlazorDemo.Tests.SharedObjects
         public void NavMenuShouldToggleWhenClicked()
         {
             using var ctx = new TestContext();
-            var cut = ctx.RenderComponent<NavMenu>();
+            var cut = ctx.RenderComponent<BlazorDemo.Shared.NavMenu>();
 
             var before = cut.FindAll("div")[1].HasAttribute("class");
 

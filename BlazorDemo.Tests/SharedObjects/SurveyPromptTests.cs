@@ -1,6 +1,5 @@
 namespace BlazorDemo.Tests.SharedObjects
 {
-    using BlazorDemo.Shared;
     using Bunit;
 
     [TestClass]
@@ -12,7 +11,7 @@ namespace BlazorDemo.Tests.SharedObjects
             const string surveyPromptTitle = "SurveyPromptTitle";
 
             using var ctx = new TestContext();
-            var cut = ctx.RenderComponent<SurveyPrompt>(parameters => parameters.Add(p => p.Title, surveyPromptTitle));
+            var cut = ctx.RenderComponent<BlazorDemo.Shared.SurveyPrompt>(parameters => parameters.Add(p => p.Title, surveyPromptTitle));
 
             cut.Find("strong").MarkupMatches($"<strong>{surveyPromptTitle}</strong>");
         }

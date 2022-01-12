@@ -1,6 +1,5 @@
 namespace BlazorDemo.Tests.Data
 {
-    using BlazorDemo.Data;
     using Blazorise.Tests.Helpers;
     using Bunit;
     using Microsoft.Extensions.DependencyInjection;
@@ -17,9 +16,9 @@ namespace BlazorDemo.Tests.Data
         [TestMethod]
         public void WeatherForecastDataGridShouldRender()
         {
-            this.Services.AddSingleton<WeatherForecastService>();
+            this.Services.AddSingleton<BlazorDemo.Data.WeatherForecastService>();
 
-            var cut = this.RenderComponent<WeatherForecastDataGrid>();
+            var cut = this.RenderComponent<BlazorDemo.Data.WeatherForecastDataGrid>();
 
             Assert.IsTrue(cut.Markup.Contains("1 - 5 z 25 wierszy", StringComparison.Ordinal));
         }

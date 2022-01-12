@@ -1,8 +1,6 @@
 namespace BlazorDemo.Data
 {
-    using Blazorise;
     using Blazorise.DataGrid;
-    using LikeComparison.VisualBasic;
 
     public class WeatherForecastQueryable
     {
