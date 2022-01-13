@@ -17,7 +17,7 @@
         <Rule Id="IDE0019" Action="Warning" />          <!-- Use pattern matching to avoid as followed by a null check -->
         <Rule Id="IDE0020" Action="Warning" />          <!-- Use pattern matching to avoid is check followed by a cast (with variable) -->
         <Rule Id="IDE0021" Action="Warning" />          <!-- Use expression body for constructors -->
-        <Rule Id="IDE0022" Action="None" />          <!-- Use expression body for methods -->
+        <Rule Id="IDE0022" Action="Warning" />          <!-- Use expression body for methods -->
         <Rule Id="IDE0023" Action="Warning" />          <!-- Use expression body for conversion operators -->
         <Rule Id="IDE0024" Action="Warning" />          <!-- Use expression body for operators -->
         <Rule Id="IDE0025" Action="Warning" />          <!-- Use expression body for properties -->
