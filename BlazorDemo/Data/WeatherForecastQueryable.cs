@@ -25,7 +25,7 @@ namespace BlazorDemo.Data
             if (this._forecasts == null)
             {
                 var items = await this.GetForecastAsync(DateTime.Now);
-                this._forecasts = items.AsQueryable<WeatherForecast>();
+                this._forecasts = items.AsQueryable();
             }
 
             var query = this._forecasts;

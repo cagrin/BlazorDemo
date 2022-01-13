@@ -13,7 +13,7 @@ namespace BlazorDemo.Tests.Data
         public void WeatherForecastShouldHasTemperatureF(int tempC, int tempF)
         {
             var wf = new WeatherForecast() { TemperatureC = tempC };
-            Assert.AreEqual<int>(tempF, wf.TemperatureF);
+            Assert.AreEqual(tempF, wf.TemperatureF);
         }
     }
 }

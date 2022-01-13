@@ -1,5 +1,6 @@
 namespace BlazorDemo.Tests.Pages
 {
+    using BlazorDemo.Pages;
     using Bunit;
 
     [TestClass]
@@ -10,7 +11,7 @@ namespace BlazorDemo.Tests.Pages
         {
             // Arrange: render the Counter.razor component
             using var ctx = new TestContext();
-            var cut = ctx.RenderComponent<BlazorDemo.Pages.Counter>();
+            var cut = ctx.RenderComponent<Counter>();
 
             // Act: find and click the <button> element to increment
             // the counter in the <p> element
