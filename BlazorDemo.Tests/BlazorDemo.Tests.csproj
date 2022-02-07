@@ -10,8 +10,8 @@
 		<PackageReference Include="Blazorise.DataGrid" Version="0.9.5.5"/>
 		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.5.5"/>
 		<PackageReference Include="bunit" Version="1.4.15"/>
-		<PackageReference Include="coverlet.collector" Version="3.1.1"/>
-		<PackageReference Include="coverlet.msbuild" Version="3.1.1"/>
+		<PackageReference Include="coverlet.collector" Version="3.1.2"/>
+		<PackageReference Include="coverlet.msbuild" Version="3.1.2"/>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0"/>
 		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="6.0.1"/>
 		<PackageReference Include="Moq" Version="4.16.1"/>
