@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - directory: "/"
+    open-pull-requests-limit: 5
+    package-ecosystem: nuget
+    rebase-strategy: auto
+    schedule:
+      interval: "daily"
+
+  - directory: "/"
+    open-pull-requests-limit: 5
+    package-ecosystem: gitsubmodule
+    rebase-strategy: auto
+    schedule:
+      interval: "weekly"
+
+  - directory: "/"
+    open-pull-requests-limit: 5
+    package-ecosystem: github-actions
+    rebase-strategy: auto
+    schedule:
+      interval: "weekly"
