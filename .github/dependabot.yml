@@ -5,10 +5,10 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "nuget"
-    directory: "/BlazorDemo"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "nuget"
     directory: "/BlazorDemo.Tests"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "Blazorise.Bootstrap5"
+      - dependency-name: "Blazorise.DataGrid"
+      - dependency-name: "Blazorise.Icons.FontAwesome"
