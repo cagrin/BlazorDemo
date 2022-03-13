@@ -21,7 +21,7 @@ namespace BlazorDemo
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; })
+            services.AddBlazorise(options => { options.Immediate = true; })
                     .AddBootstrap5Providers()
                     .AddFontAwesomeIcons();
 

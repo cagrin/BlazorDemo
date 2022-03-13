@@ -43,7 +43,7 @@ namespace Blazorise.Tests.Helpers
             services.AddScoped<IJSBreakpointModule, JSBreakpointModule>();
             services.AddScoped<IJSTextEditModule, JSTextEditModule>();
             services.AddScoped<IJSMemoEditModule, JSMemoEditModule>();
-            services.AddScoped<IJSNumericEditModule, JSNumericEditModule>();
+            services.AddScoped<IJSNumericPickerModule, JSNumericPickerModule>();
             services.AddScoped<IJSDatePickerModule, JSDatePickerModule>();
             services.AddScoped<IJSTimePickerModule, JSTimePickerModule>();
             services.AddScoped<IJSColorPickerModule, JSColorPickerModule>();
@@ -108,11 +108,11 @@ namespace Blazorise.Tests.Helpers
                 module.SetupVoid("unregisterClosableComponent", _ => true);
             }
 
-            public static void AddNumericEdit(BunitJSInterop jsInterop)
+            public static void AddNumericPicker(BunitJSInterop jsInterop)
             {
                 AddUtilities(jsInterop);
 
-                var js = new JSNumericEditModule(jsInterop.JSRuntime, new VersionProvider());
+                var js = new JSNumericPickerModule(jsInterop.JSRuntime, new VersionProvider());
                 var module = jsInterop.SetupModule(js.ModuleFileName);
                 js.DisposeAsync().AsTask().Wait();
 

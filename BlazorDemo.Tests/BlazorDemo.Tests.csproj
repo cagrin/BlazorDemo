@@ -6,9 +6,9 @@
 		<ProjectReference Include="..\BlazorDemo\BlazorDemo.csproj"/>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Blazorise.Bootstrap5" Version="0.9.5.6"/>
-		<PackageReference Include="Blazorise.DataGrid" Version="0.9.5.6"/>
-		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.5.6"/>
+		<PackageReference Include="Blazorise.Bootstrap5" Version="1.0.1"/>
+		<PackageReference Include="Blazorise.DataGrid" Version="1.0.1"/>
+		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.0.1"/>
 		<PackageReference Include="bunit" Version="1.6.4"/>
 		<PackageReference Include="coverlet.collector" Version="3.1.2"/>
 		<PackageReference Include="coverlet.msbuild" Version="3.1.2"/>
