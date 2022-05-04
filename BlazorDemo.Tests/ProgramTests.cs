@@ -8,12 +8,11 @@ namespace BlazorDemo.Tests
     public class ProgramTests
     {
         [TestMethod]
-        public void ProgramMainShouldRunWithNullArgs()
+        public async Task ProgramMainShouldRunWithNullArgs()
         {
-            Parallel.ForEachAsync(new List<string[]> { null! }, new ParallelOptions() { MaxDegreeOfParallelism = 1 }, async (c, t) =>
-            {
-                await Task.Run(() => { Program.Main(args: c); }, CancellationToken.None);
-            });
+            Program.CancellationTokenSource.CancelAfter(500);
+
+            await Program.Main(args: null!);
         }
 
         [TestMethod]
