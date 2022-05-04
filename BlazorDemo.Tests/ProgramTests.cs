@@ -10,7 +10,7 @@ namespace BlazorDemo.Tests
         [TestMethod]
         public async Task ProgramMainShouldRunWithNullArgs()
         {
-            Program.CancellationTokenSource.CancelAfter(2000);
+            Program.CancellationTokenSource.CancelAfter(5000);
 
             await Program.Main(args: null!);
         }
