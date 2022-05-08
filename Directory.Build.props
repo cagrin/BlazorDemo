@@ -7,9 +7,9 @@
         <CodeAnalysisRuleSet>../StyleCop.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     <ItemGroup>
-		<PackageReference Update="Blazorise.Bootstrap5"/>
-		<PackageReference Update="Blazorise.DataGrid"/>
-		<PackageReference Update="Blazorise.Icons.FontAwesome"/>
+        <PackageReference Update="Blazorise.Bootstrap5"/>
+        <PackageReference Update="Blazorise.DataGrid"/>
+        <PackageReference Update="Blazorise.Icons.FontAwesome"/>
         <PackageReference Update="StyleCop.Analyzers" PrivateAssets="All"/>
     </ItemGroup>
 </Project>
