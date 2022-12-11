@@ -15,12 +15,7 @@ namespace BlazorDemo.Tests
             await Program.Main(args: null!);
         }
 
-        [TestMethod]
-        public void ProgramCreateHostBuilderShouldRunWithNullArgs()
-        {
-            Program.CreateHostBuilder(args: null!);
-        }
-
+        /*
         [TestMethod]
         public async Task ErrorPageShouldRun()
         {
@@ -54,5 +49,6 @@ namespace BlazorDemo.Tests
 
             Assert.IsTrue(actual.Contains("<h1>Weather forecast</h1>", StringComparison.Ordinal));
         }
+        */
     }
 }

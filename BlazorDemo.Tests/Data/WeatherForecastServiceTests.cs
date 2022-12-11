@@ -10,7 +10,7 @@ namespace BlazorDemo.Tests.Data
         {
             var service = new WeatherForecastService();
 
-            var forecasts = await service.GetForecastAsync(DateTime.Now);
+            var forecasts = await service.GetForecastAsync(DateOnly.FromDateTime(DateTime.Now));
 
             Assert.IsTrue(forecasts.Length == 25);
         }

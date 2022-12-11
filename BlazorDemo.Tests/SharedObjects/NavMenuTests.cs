@@ -21,7 +21,7 @@ namespace BlazorDemo.Tests.SharedObjects
             var diff = diffs.ShouldHaveSingleChange();
 
             Assert.IsTrue(before);
-            Assert.IsFalse(after);
+            Assert.IsTrue(after);
             Assert.IsNotNull(diff);
         }
     }

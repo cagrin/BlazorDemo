@@ -1,15 +1,12 @@
 <Project>
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AnalysisMode>All</AnalysisMode>
         <CodeAnalysisRuleSet>../StyleCop.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Update="Blazorise.Bootstrap5"/>
-        <PackageReference Update="Blazorise.DataGrid"/>
-        <PackageReference Update="Blazorise.Icons.FontAwesome"/>
         <PackageReference Update="StyleCop.Analyzers" PrivateAssets="All"/>
     </ItemGroup>
 </Project>

@@ -1,28 +1,26 @@
-﻿namespace BlazorDemo.Pages
+﻿namespace BlazorDemo.Pages;
+
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+[IgnoreAntiforgeryToken]
+public class ErrorModel : PageModel
 {
-    using System.Diagnostics;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.RazorPages;
-    using Microsoft.Extensions.Logging;
+    private readonly ILogger<ErrorModel> _logger;
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    [IgnoreAntiforgeryToken]
-    public class ErrorModel : PageModel
+    public ErrorModel(ILogger<ErrorModel> logger)
     {
-        private readonly ILogger<ErrorModel> _logger;
+        this._logger = logger;
+    }
 
-        public ErrorModel(ILogger<ErrorModel> logger)
-        {
-            this._logger = logger;
-        }
+    public string? RequestId { get; set; }
 
-        public string? RequestId { get; set; }
+    public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
-
-        public void OnGet()
-        {
-            this.RequestId = Activity.Current?.Id ?? this.HttpContext?.TraceIdentifier;
-        }
+    public void OnGet()
+    {
+        this.RequestId = Activity.Current?.Id ?? this.HttpContext?.TraceIdentifier;
     }
 }

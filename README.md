@@ -1,12 +1,8 @@
 [![Coverage Status](https://img.shields.io/coveralls/github/cagrin/BlazorDemo)](https://coveralls.io/github/cagrin/BlazorDemo)
 
 # BlazorDemo
-BlazorDemo is based on ```dotnet new blazorserver``` template project.
+BlazorDemo is based on .NET 7 ```dotnet new blazorserver --use-program-main``` template project.
 
 Also it contains:
-- .NET 6 and C# 10 features enabled like ```ImplicitUsings```.
-- Component library ```Blazorise``` with Bootstrap 5 and other extentions like ```DataGrid```.
 - Unit tests with ```bUnit``` testing librabry for Blazor components.
 - Code analyzer library ```StyleCop.Analyzers``` with configuration in StyleCop.ruleset file.
-
-

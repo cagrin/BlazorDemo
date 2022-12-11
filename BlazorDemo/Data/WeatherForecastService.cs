@@ -1,21 +1,19 @@
-namespace BlazorDemo.Data
-{
-    public class WeatherForecastService
-    {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching",
-        };
+namespace BlazorDemo.Data;
 
-        public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+public class WeatherForecastService
+{
+    private static readonly string[] Summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching",
+    };
+
+    public Task<WeatherForecast[]> GetForecastAsync(DateOnly startDate)
+    {
+        return Task.FromResult(Enumerable.Range(1, 25).Select(index => new WeatherForecast
         {
-            var rng = new Random();
-            return Task.FromResult(Enumerable.Range(1, 25).Select(index => new WeatherForecast
-            {
-                Date = startDate.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)],
-            }).ToArray());
-        }
+            Date = startDate.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+        }).ToArray());
     }
 }
