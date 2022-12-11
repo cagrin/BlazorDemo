@@ -4,7 +4,7 @@ using BlazorDemo.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
-public static class Program
+public sealed class Program
 {
     public static CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
 
