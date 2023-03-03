@@ -1,8 +1,6 @@
 namespace BlazorDemo;
 
 using BlazorDemo.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 public sealed class Program
 {
