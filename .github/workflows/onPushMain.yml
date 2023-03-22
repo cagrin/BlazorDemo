@@ -4,20 +4,20 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - name: Run unit tests
-        run: dotnet test BlazorDemo.Tests --configuration Release -e CollectCoverage=true -e CoverletOutputFormat=lcov -e ExcludeByFile="**/_Host.cshtml,**/Error.cshtml.cs"
+        run: dotnet test BlazorDemo.Tests -e CollectCoverage=true -e CoverletOutputFormat=lcov -e ExcludeByFile="**/_Host.cshtml,**/Error.cshtml.cs"
       - name: Run coveralls.io
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./BlazorDemo.Tests/coverage.info
-        if: github.event_name != 'pull_request'
