@@ -1,9 +1,7 @@
 namespace BlazorDemo.Tests
 {
     using BlazorDemo;
-    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc.Testing;
-    using Microsoft.AspNetCore.TestHost;
 
     [TestClass]
     public class ProgramTests
