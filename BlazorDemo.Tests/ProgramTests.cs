@@ -12,7 +12,7 @@ namespace BlazorDemo.Tests
             using var server = new WebApplicationFactory<Program>();
 
             var client = server.CreateClient();
-            var response = await client.GetAsync(new Uri("/error"));
+            var response = await client.GetAsync(new Uri("/error", UriKind.Relative));
 
             Assert.IsNotNull(response);
         }
@@ -23,7 +23,7 @@ namespace BlazorDemo.Tests
             using var server = new WebApplicationFactory<Program>();
 
             var client = server.CreateClient();
-            var response = await client.GetAsync(new Uri("/"));
+            var response = await client.GetAsync(new Uri("/", UriKind.Relative));
 
             Assert.IsNotNull(response);
         }
@@ -34,7 +34,7 @@ namespace BlazorDemo.Tests
             using var server = new WebApplicationFactory<Program>();
 
             var client = server.CreateClient();
-            var response = await client.GetAsync(new Uri("/fetchdata"));
+            var response = await client.GetAsync(new Uri("/fetchdata", UriKind.Relative));
             var actual = await response.Content.ReadAsStringAsync();
 
             Assert.IsTrue(actual.Contains("<h1>Weather forecast</h1>", StringComparison.Ordinal));
