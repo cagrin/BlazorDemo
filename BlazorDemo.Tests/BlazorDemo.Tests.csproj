@@ -5,7 +5,7 @@
     <ItemGroup>
         <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
         <PackageReference Include="MSTest.TestAdapter" Version="3.0.2" />
-        <PackageReference Include="MSTest.TestFramework" Version="3.0.2" />
+        <PackageReference Include="MSTest.TestFramework" Version="3.0.3" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="bunit" Version="1.19.14" />
